@@ -1,0 +1,224 @@
+/* Import all from 0-styles.css */
+@import url('0-styles.css');
+@import url('1-styles.css');
+@import url('2-styles.css');
+@import url('3-styles.css');
+@import url('4-styles.css');
+/* --- WHAT WE DO SECTION --- */
+.what-we-do {
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+  padding: 90px 20px;
+}
+
+.what-we-do .container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.what-we-do h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.what-we-do .section-desc {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto 70px;
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.icon-box {
+  text-align: center;
+  background: #403e3e;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.icon-box:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.icon-box:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.icon-box:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.icon-box:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+.icon-box:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  background-color: #ff6565;
+}
+
+.icon-box i {
+  font-size: 4rem;
+  color: #ff6565;
+  margin-bottom: 17px;
+  display: block;
+  animation: pulse 3s infinite ease-in-out;
+}
+.icon-box i:hover {
+    color: #f3eeee;
+}
+.icon-box h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color:#f3eeee;
+}
+
+.icon-box p {
+  color: #f3eeee;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-top: 10px;
+}
+
+/* --- OUR RESULTS SECTION --- */
+.results {
+  background-color: #f9f9f9;
+  text-align: center;
+  padding: 90px 20px;
+}
+
+.results h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.results p {
+  max-width: 700px;
+  margin: 0 auto 60px;
+  color: #fcf7f7;
+  line-height: 1.7;
+}
+
+.pentagon-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.pentagon {
+  width: 150px;
+  height: 150px;
+  background: #ff6565;
+  color: #fff;
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1.5rem;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.pentagon:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.pentagon:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.pentagon:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.pentagon:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+.pentagon:hover {
+  transform: scale(1.1) rotate(3deg);
+}
+
+.pentagon h3 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.pentagon span {
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .icon-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .icon-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .what-we-do {
+    padding: 60px 15px;
+  }
+
+  .what-we-do h2 {
+    font-size: 1.6rem;
+  }
+
+  .what-we-do .section-desc {
+    font-size: 0.9rem;
+    margin-bottom: 50px;
+  }
+
+  .results {
+    padding: 60px 15px;
+  }
+
+  .pentagon-row {
+    gap: 20px;
+  }
+
+  .pentagon {
+    width: 130px;
+    height: 130px;
+  }
+}
