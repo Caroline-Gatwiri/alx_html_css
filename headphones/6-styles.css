@@ -1,0 +1,169 @@
+/* ===== Base / Reset ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root{
+  --bg-top: #0b2b3b;
+  --bg-bottom: #071426;
+  --accent: #ff6565;
+  --muted: #cfd8dc;
+  --container: 1000px;
+}
+body{
+  font-family: "Source Sans Pro", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: #fff;
+  color: #e9eef2;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+}
+
+/* ===== Layout helpers ===== */
+.container{
+  width: 90%;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+/* ===== Header ===== */
+.site-header{
+  background: #071121;
+  padding: 18px 0;
+}
+.site-header .logo{
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* ===== Results section (no image — CSS gradient instead) ===== */
+.results{
+  background: linear-gradient(180deg, rgba(7,18,33,0.88) 0%, rgba(4,13,24,0.95) 100%);
+  padding: 80px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.results-inner{
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.results h2{
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.results .lead{
+  max-width: 780px;
+  margin: 0 auto 48px;
+  color: #cdd7db;
+  font-size: 15px;
+}
+
+/* ===== Pentagon grid ===== */
+.pentagon-grid{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  align-items: end; /* makes bottoms lined up visually */
+  justify-items: center;
+}
+
+/* stat card wrapper */
+.stat-card{
+  width: 100%;
+  display:flex;
+  justify-content:center;
+}
+
+/* ===== Pure CSS pentagon shape =====
+   We use clip-path polygon to draw the pentagon and
+   a pseudo-element for the subtle inner shadow if desired.
+*/
+.pentagon{
+  width: 150px;
+  height: 150px;
+  background: var(--accent);
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .28s ease, box-shadow .28s ease;
+  box-shadow: 0 8px 20px rgba(5,10,18,0.45);
+  position: relative;
+  color: #fff;
+}
+
+/* optional subtle border inside to mimic the design */
+.pentagon::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  border: 2px solid rgba(255,101,101,0.85);
+  pointer-events: none;
+}
+
+/* content inside pentagon */
+.pentagon-content{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding: 12px 6px;
+  text-align:center;
+  transform: translateY(0);
+}
+
+.percent{
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.label{
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.95);
+  line-height: 1.15;
+  max-width: 110px; /* keep wrapped text inside pentagon */
+}
+
+/* Hover / focus (visual lift) */
+.pentagon:hover, .pentagon:focus-within{
+  transform: translateY(-10px);
+  box-shadow: 0 18px 36px rgba(5,10,18,0.6);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px){
+  .pentagon-grid{
+    gap: 28px;
+  }
+  .pentagon{ width: 135px; height: 135px; }
+  .percent{ font-size: 1.4rem; }
+  .label{ font-size: .88rem; max-width:100px; }
+}
+
+@media (max-width: 768px){
+  .results{ padding: 60px 0 80px; }
+  .pentagon-grid{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+  .pentagon{ width: 140px; height: 140px; }
+}
+
+@media (max-width: 480px){
+  .results{ padding: 40px 12px 60px; }
+  .results h2{ font-size: 20px; }
+  .results .lead{ font-size: 14px; margin-bottom: 28px; }
+  .pentagon-grid{
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .pentagon{ width: 160px; height: 160px; } /* slightly larger when centered */
+  .label{ max-width: 180px; font-size: 0.95rem; }
+}
