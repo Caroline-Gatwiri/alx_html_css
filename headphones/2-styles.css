@@ -1,0 +1,107 @@
+/* Import all from 0-styles.css and 1-styles.css */
+@import url('0-styles.css');
+@import url('1-styles.css');
+
+/* --- OUR RESULTS SECTION --- */
+
+ 
+/* Section Background */
+.results {
+   background: url("images/background.png") center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+/* Text Content */
+.results-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.results h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.results p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #dcdcdc;
+  margin-bottom: 60px;
+}
+
+/* Pentagon Row */
+.pentagon-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 70px;
+  flex-wrap: wrap;
+}
+
+/* Pentagon Shape */
+.pentagon {
+  width: 150px;
+  height: 150px;
+  background: #ff6565;
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.pentagon h3 {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.pentagon span {
+  font-size: 0.9rem;
+  color: #ffeaea;
+}
+
+/* Hover Effect */
+.pentagon:hover {
+  transform: translateY(-8px);
+  background: #ff4c4c;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .pentagon-row {
+    gap: 25px;
+  }
+
+  .pentagon {
+    width: 130px;
+    height: 130px;
+    
+  }
+}
+
+@media (max-width: 600px) {
+  .results {
+    padding: 60px 15px;
+  }
+
+  .results h2 {
+    font-size: 1.5rem;
+  }
+
+  .results p {
+    font-size: 0.9rem;
+  }
+
+  .pentagon-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+}
