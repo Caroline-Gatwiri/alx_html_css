@@ -1,4 +1,3 @@
-/* --- HAMBURGER MENU --- */
 
 @import url('0-styles.css');
 @import url('1-styles.css');
@@ -22,7 +21,7 @@
   transition: all 0.3s ease;
 }
 
-/* Mobile View */
+
 @media (max-width: 480px) {
   .nav-links {
     position: absolute;
@@ -39,7 +38,7 @@
   }
 
   .nav-links.open {
-    height: 180px; /* show menu when active */
+    height: 180px; 
   }
 
   .nav-links li {
@@ -50,7 +49,7 @@
     display: flex;
   }
 
-  /* Animate hamburger into X when active */
+ 
   .hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 6px);
   }
