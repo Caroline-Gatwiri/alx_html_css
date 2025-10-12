@@ -1,0 +1,211 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Source Sans Pro", sans-serif;
+    color: #fff;
+    background-color: #0b0c10;
+  }
+  
+  /* Header Background */
+  header {
+    background: linear-gradient(rgba(150, 148, 148, 0.6), rgba(0, 0, 0, 0.6)),
+      url("images/headphones_hero_1.jpg") center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative; /* For absolute menu positioning */
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between; /* Keeps logo left, links/hamburger right */
+    align-items: center;
+    padding: 30px 60px;
+    position: relative;
+    z-index: 10; /* Ensures navbar above menu */
+  }
+  
+  .logo img {
+    height: 35px;
+    width: auto;
+  }
+  
+  /* Navigation Links */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+  }
+  
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    text-transform: lowercase;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover,
+  .nav-links a:active {
+    color: #e19292;
+  }
+  
+  /* Hamburger menu */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around; /* Even spacing for lines */
+    align-items: center;
+    cursor: pointer;
+    gap: 4px; /* Tighter for vertical stack */
+    width: 28px;
+    height: 20px; /* Fixed height for touch target */
+    position: relative;
+  }
+  
+  .hamburger span {
+    width: 100%;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Hide checkbox */
+  .menu-toggle {
+    display: none;
+    pointer-events: none; /* Prevents accidental clicks */
+  }
+  
+  /* Hero Section */
+  .hero {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 20px;
+  }
+  
+  .hero h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #dcdcdc;
+  }
+  
+  .hero h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #dcdcdc;
+    margin-bottom: 40px;
+  }
+  
+  .hero button {
+    background-color: #ff6565;
+    color: #fff;
+    border: none;
+    padding: 14px 40px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+  
+  .hero button:hover,
+  .hero button:active {
+    opacity: 0.9;
+  }
+  
+  .hero p {
+    margin-top: 50px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #dcdcdc;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Responsive - Updated breakpoint to 768px for phones + tablets */
+  @media (max-width: 768px) {
+    header {
+      height: auto;
+      min-height: 100vh; /* Ensures full coverage */
+    }
+  
+    .navbar {
+      flex-direction: row; /* Row for hamburger left + logo right */
+      padding: 20px;
+      justify-content: space-between;
+    }
+  
+    /* Show hamburger in mobile */
+    .hamburger {
+      display: flex;
+    }
+  
+    /* Hide nav links initially - position absolute for dropdown */
+    .nav-links {
+      display: none !important; /* Force hide; overrides base flex */
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+      position: absolute;
+      top: 100%; /* Drops below navbar */
+      left: 0;
+      width: 100%;
+    
+      padding: 20px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      z-index: 5;
+    }
+  
+    /* Show menu when toggled */
+    .menu-toggle:checked ~ .nav-links {
+      display: flex !important;
+    }
+  
+    /* Animate hamburger into X */
+    .menu-toggle:checked + .hamburger span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+  
+    .menu-toggle:checked + .hamburger span:nth-child(2) {
+      opacity: 0;
+      transform: translateX(10px);
+    }
+  
+    .menu-toggle:checked + .hamburger span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+  
+    .hero {
+      padding: 40px 20px 60px; /* Tighter vertical spacing */
+    }
+  
+    .hero h1 {
+      font-size: 1.8rem;
+    }
+  
+    .hero h2 {
+      font-size: 0.95rem;
+    }
+  
+    .hero p {
+      font-size: 0.9rem;
+      max-width: none; /* Full width on mobile */
+      margin-top: 30px;
+    }
+  
+    .hero button {
+      padding: 12px 30px; /* Slightly smaller */
+    }
+  }
